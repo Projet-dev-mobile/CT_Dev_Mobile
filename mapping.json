@@ -1,0 +1,24 @@
+{
+    "strict": {
+  
+      "text-heading-1-font-size": 36,
+      "text-heading-1-font-weight": "800",
+
+      "text-basic-color": "$color-basic-400",
+
+      "text-title-font-size": 52,
+  
+      "text-subtitle-1-font-size": 15,
+      "text-subtitle-1-font-weight": "600",
+  
+      "text-paragraph-1-font-size": 15,
+      "text-paragraph-1-font-weight": "400",
+
+  
+      "text-caption-1-font-size": 12,
+      "text-caption-1-font-weight": "400",
+  
+      "text-label-font-size": 12,
+      "text-label-font-weight": "800"
+    }
+  }

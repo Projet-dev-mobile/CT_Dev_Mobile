@@ -2,14 +2,14 @@ import React ,{ Component, useState } from 'react';
 import {Alert, View, TextInput, Button, StyleSheet, Text, FlatList, Keyboard } from 'react-native';
 import { Layout } from '@ui-kitten/components';
 
-const SecondPage = ({navigation })=>{
+const Followed = ({navigation })=>{
 
     return (
         <View >
-            <Text>Deuxième page </Text>
+            <Text>People followed </Text>
         </View>
         
     );
 }
 
-export default SecondPage;
+export default Followed;

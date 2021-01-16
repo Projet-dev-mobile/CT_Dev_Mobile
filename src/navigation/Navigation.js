@@ -3,48 +3,49 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Image } from 'react-native';
 
-import FirstPage from '../components/FirstPage';
-import SecondPage from '../components/SecondPage';
+import Search from '../components/Search';
+import Followed from '../components/Followed';
+
 import Assets from '../definitions/Assets';
 import Colors from '../definitions/Colors';
 
 const SearchNavigation = createStackNavigator();
 const TabNavigation = createBottomTabNavigator();
 
-function firstPageStackScreens(){
-    return (
-        
-        <SearchNavigation.Navigator
-          initialRouteName="FirstPageView"
-        >
-  
-          <SearchNavigation.Screen
-            name="FirstPageView"
-            component={FirstPage}
-            options={{ title: 'Première page' }}
-          />
-         
-        </SearchNavigation.Navigator>
-  
-      );
+
+function peopleStackScreens(){
+  return (
+      
+      <SearchNavigation.Navigator
+        initialRouteName="People"
+      >
+
+        <SearchNavigation.Screen
+          name="People"
+          component={Search}
+        />
+       
+      </SearchNavigation.Navigator>
+
+    );
 }
 
-function secondPageStackScreens(){
-    return (
-        
-        <SearchNavigation.Navigator
-          initialRouteName="SecondPageView"
-        >
-  
-          <SearchNavigation.Screen
-            name="SecondPageView"
-            component={SecondPage}
-            options={{ title: 'Deuxième page' }}
-          />
-         
-        </SearchNavigation.Navigator>
-  
-      );
+
+function followedStackScreens(){
+  return (
+      
+      <SearchNavigation.Navigator
+        initialRouteName="Followed"
+      >
+
+        <SearchNavigation.Screen
+          name="Followed"
+          component={Followed}
+        />
+       
+      </SearchNavigation.Navigator>
+
+    );
 }
 
 function RootStack() {
@@ -54,8 +55,8 @@ function RootStack() {
             activeTintColor: Colors.mainBlue,
             }}>
           <TabNavigation.Screen
-            name="Recherche"
-            component={firstPageStackScreens}
+            name="People"
+            component={peopleStackScreens}
             options={() => ({
                 tabBarIcon: ({ color }) => {
                   return <Image source={Assets.icons.search} style={{ tintColor: color }}/>;
@@ -63,8 +64,8 @@ function RootStack() {
               })}
           />
           <TabNavigation.Screen
-            name="Favoris"
-            component={secondPageStackScreens}
+            name="Followed"
+            component={followedStackScreens}
             options={() => ({
                 tabBarIcon: ({color}) => {
                   return <Image source={Assets.icons.fav} style={{ tintColor: color }} />;

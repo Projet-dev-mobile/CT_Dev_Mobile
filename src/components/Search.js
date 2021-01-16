@@ -54,7 +54,7 @@ const Search = ({navigation , favPeople})=>{
     };
 
     const navigateToPeopleDetails = (peopleID) => {
-        console.log(peopleID);
+        
         navigation.navigate("People", { peopleID });
     };
 
@@ -68,13 +68,13 @@ const Search = ({navigation , favPeople})=>{
             />
             <Button
                 title='Rechercher'
-                color={Colors.mainGreen}
+                color={Colors.mainBlue}
                 onPress={searchPeople}
 
             />
             <Button
                 title='X'
-                color={Colors.mainGreen}
+                color={Colors.mainBlue}
             />
             {
                 isError ?
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
       fontStyle: 'italic',
     },
     icon: {
-      tintColor: Colors.mainGreen,
+      tintColor: Colors.mainBlue,
     },
     stat: {
       marginLeft: 4,

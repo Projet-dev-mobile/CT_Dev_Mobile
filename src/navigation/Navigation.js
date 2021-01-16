@@ -6,6 +6,7 @@ import { Image } from 'react-native';
 import Search from '../components/Search';
 import Followed from '../components/Followed';
 import People from '../components/People';
+import FavPeople from '../components/FavPeople';
 
 import Assets from '../definitions/Assets';
 import Colors from '../definitions/Colors';
@@ -46,7 +47,12 @@ function followedStackScreens(){
 
         <SearchNavigation.Screen
           name="Followed"
-          component={Followed}
+          component={FavPeople}
+        />
+
+        <SearchNavigation.Screen
+          name="People"
+          component={People}
         />
        
       </SearchNavigation.Navigator>

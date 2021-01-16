@@ -65,7 +65,7 @@ const People = ({route , favPeople, dispatch})=>{
           return (
             <Button
               title='Retirer des favoris'
-              color={Colors.mainGreen}
+              color={Colors.mainBlue}
               onPress={unsavePeople}
             />
           );
@@ -74,7 +74,7 @@ const People = ({route , favPeople, dispatch})=>{
         return (
           <Button
             title='Ajouter aux favoris'
-            color={Colors.mainGreen}
+            color={Colors.mainBlue}
             onPress={savePeople}
           />
         );

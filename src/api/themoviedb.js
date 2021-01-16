@@ -13,6 +13,19 @@ export async function getPeopleList(searchTerm = '', offset = 0) {
     }
 };
 
+export async function getPeopleListWithString(searchTerm = '', offset = 0) {
+    try {
+      const myHeaders = new Headers({ 'user-key': API_KEY });
+      const url = `https://api.themoviedb.org/3/search/person?api_key=${API_KEY}&language=en-US&query=${searchTerm}&page=1&include_adult=false`;
+      const response = await fetch(url, { headers: myHeaders });
+      const json = await response.json();
+      return json;
+    } catch (error) {
+      console.log(`Error with function getPeopleList ${error.message}`);
+      throw error;
+    }
+};
+
 export async function getPeopleDetails(people_id) {
     try {
       const myHeaders = new Headers({ 'user-key': API_KEY });

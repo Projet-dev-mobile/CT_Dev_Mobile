@@ -7,6 +7,8 @@ import { default as theme } from './theme.json';
 import { default as mapping } from './mapping.json';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Provider } from 'react-redux';
+import Store from './src/store/config';
 
 export default function App() {
   return (
@@ -15,9 +17,11 @@ export default function App() {
     {...eva} 
     theme={{ ...eva.light, ...theme }}
     customMapping={mapping}>
-      <NavigationContainer>
-        <Navigation />
-      </NavigationContainer>
+      <Provider store={Store}>
+        <NavigationContainer>
+          <Navigation />
+        </NavigationContainer>
+      </Provider>
     </ApplicationProvider>
   
   );

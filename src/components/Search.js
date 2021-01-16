@@ -4,13 +4,15 @@ import { Layout } from '@ui-kitten/components';
 import Colors from '../definitions/Colors';
 import { getPeopleList } from '../api/themoviedb';
 import DisplayError from '../components/DisplayError';
+import { connect } from 'react-redux';
 
 import Assets from '../definitions/Assets';
 
 
 import PeopleListItem from '../components/PeopleListItem';
+import favPeople from '../store/reducers/favPeople';
 
-const Search = ({navigation })=>{
+const Search = ({navigation , favPeople})=>{
 
     const [people, setPeople] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
@@ -51,6 +53,11 @@ const Search = ({navigation })=>{
         };
     };
 
+    const navigateToPeopleDetails = (peopleID) => {
+        console.log(peopleID);
+        navigation.navigate("People", { peopleID });
+    };
+
 
     return (
         <View >
@@ -74,6 +81,7 @@ const Search = ({navigation })=>{
                 (<DisplayError message='Impossible de récupérer les personnalités' />) :
                 (<FlatList
                     data={people}
+                    extraData={favPeople}
                     keyExtractor={(item, index) => index.toString()}
                     /*renderItem={({ item}) => (
                     <PeopleListItem
@@ -83,7 +91,8 @@ const Search = ({navigation })=>{
                     )}*/
                     renderItem={
                         ({item}) => <TouchableOpacity style={styles.container}
-                        >
+                        onPress={() => { navigateToPeopleDetails(item.id) }}>
+                        
                             <Image style={styles.icon} source={Assets.icons.profile} />
                          <View style={styles.informationContainer}>
                            <View style={styles.titleContainer}>
@@ -118,7 +127,13 @@ const Search = ({navigation })=>{
     );
 }
 
-export default Search;
+const mapStateToProps = (state) => {
+    return {
+      favPeople: state.favPeople
+    }
+  }
+
+export default connect(mapStateToProps)(Search);
 
 const styles = StyleSheet.create({
     container: {

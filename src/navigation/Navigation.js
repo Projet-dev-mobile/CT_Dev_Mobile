@@ -5,6 +5,7 @@ import { Image } from 'react-native';
 
 import Search from '../components/Search';
 import Followed from '../components/Followed';
+import People from '../components/People';
 
 import Assets from '../definitions/Assets';
 import Colors from '../definitions/Colors';
@@ -17,12 +18,17 @@ function peopleStackScreens(){
   return (
       
       <SearchNavigation.Navigator
-        initialRouteName="People"
+        initialRouteName="PeopleSearch"
       >
 
         <SearchNavigation.Screen
-          name="People"
+          name="PeopleSearch"
           component={Search}
+        />
+
+        <SearchNavigation.Screen
+          name="People"
+          component={People}
         />
        
       </SearchNavigation.Navigator>
